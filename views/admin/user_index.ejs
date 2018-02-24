@@ -1,0 +1,36 @@
+<% include components/layout.ejs %>
+<div class="container-fluid">
+	<ol class="breadcrumb">
+		<li>
+			<a href="/admin">后台管理</a>
+		</li>
+		<li class="active">用户列表</li>
+	</ol>
+	<h3>用户列表</h3>
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>ID</th>
+			<th>用户名</th>
+			<th>密码</th>
+			<th>是否为管理员</th>
+		</tr>
+		<% for (var i=0; i < users.length; i++) {%>
+		<tr>
+			<td>
+				<%= users[i].ID %>
+			</td>
+			<td>
+				<%= users[i].username %>
+			</td>
+			<td>
+				<%= users[i].password %>
+			</td>
+			<td>
+				<% if (users[i].isAdmin){%> 是
+				<% } else { %> 否
+				<% } %>
+			</td>
+		</tr>
+		<% } %>
+	</table>
+<% include components/page.ejs %>

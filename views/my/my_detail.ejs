@@ -1,0 +1,31 @@
+<% include components/layout.ejs %>
+<div class="container-fluid">
+	<ol class="breadcrumb">
+		<li>
+			<a href="/admin">个人中心</a>
+		</li>
+		<li class="active">个人资料</li>
+	</ol>
+	<h3>用户列表</h3>
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>用户名</th>
+			<th>头像</th>
+			<th>性别</th>
+			<th>年龄</th>
+			<th>爱好</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>
+				<%= user.username %>
+			</td>
+			<td>
+				<img width="32" height="32" src="/images/upload/<%= user.avatar %>"/>
+			</td>
+			<td><%= user.sex %></td>
+			<td><%= user.age %></td>
+			<td><%= user.hobby %></td>
+			<td><a href="/my/detail/edit?id=<%= user.ID %>">修改</a></td>
+		</tr>
+	</table>

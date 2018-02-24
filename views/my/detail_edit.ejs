@@ -1,0 +1,36 @@
+<% include components/layout.ejs %>
+<ol class="breadcrumb">
+	<li>
+		<a href="/my">个人中心</a>
+	</li>
+	<li class="active">修改个人资料</li>
+</ol>
+<div class="container-fluid">
+	<h3>用户名称：<%= user.username%></h3>
+	<form method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="avatar">当前头像:</label>
+			<img class="img-circle" width="64" height="64" src="/images/upload/<%= user.avatar %>"/>
+			<input type="file" name="avatar"  id="avatar"/>
+		</div>
+		<div class="form-group">
+			<label for="sex">当前性别:</label>
+			<label class="radio-inline">
+              <input type="radio" name="sex" id="man" value="男" required> 男
+            </label>
+			<label class="radio-inline">
+              <input type="radio" name="sex" id="woman" value="女" required> 女
+            </label>
+		</div>
+		<div class="form-group">
+			<label for="age">用户年龄</label>
+			<input class="form-control" type="text" name="age" id="age" value="<%= user.age %>" />
+		</div>
+		<div class="form-group">
+			<label for="hobby">兴趣爱好：</label>
+			<textarea class="form-control" name="hobby" id="hobby" rows="10" placeholder="请输入内容" ><%= user.hobby %></textarea>
+		</div>
+		<button type="submit" class="btn btn-default">提交</button>
+	</form>
+
+</div>

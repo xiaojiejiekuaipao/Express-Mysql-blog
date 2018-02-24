@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/util.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>博客首页</title>
+</head>
+<body>
+<header>
+	
+	
+    <div class="center">
+        <a class="head_logo" href="javascript:void(0);">
+            <img src="images/logo.png" alt="" />
+        </a>
+        <nav class="head_nav">
+        	<a href="/">首页</a>
+        	<% for(var i=0;i<categories.length;i++){ %>
+        		<a href="/?type=<%= categories[i].ID%>"><%= categories[i].category_name %></a>
+        	<% } %>
+        </nav>
+    </div>
+</header>
+<div class="center banner">
+    <img src="images/banner.jpg" alt="">
+    <h2></h2>
+</div>
+<div class="center">
+	    <div class="article_list">
+        <% for(var i=0;i<articles.length;i++){ %>
+        <a class="article_item" href="/views?articleID=<%= articles[i].ID %>">
+            <h3><%= articles[i].title %></h3>
+            <div class="article_main">
+                <p class="article_content ellipsis_4"><%= articles[i].description %></p>
+            </div>
+            <div class="article_tag">
+                <span><%= articles[i].category_name %></span>
+                <i>阅读量:<%= articles[i].n_view %></i>
+                <i><%= articles[i].post_time %>&nbsp;&nbsp;&nbsp;</i>
+            </div>
+        </a>
+        <% } %>
+     <% if (pages >=1){ %>
+        	<nav>
+        	<ul class="pager">
+            	<li class="previous"><a href="/?page=<%= current_page-1 %>"><span aria-hidden="true">&larr;</span>上一页</a></li>
+                <span>第 <i><%= current_page %></i> 页, 共 <i><%= pages %></i> 页</span>
+            	<li class="next"><a href="/?page=<%= current_page+1 %>"><span aria-hidden="true">&rarr;</span>下一页</a></li>
+            </ul>
+            </nav>
+        <% }else if (count==0){ %>
+        	<nav>
+        	<ul class="pager">
+        		<p class="noPageList">没有相关文章</p>
+            </ul>
+            </nav>
+        <% } %>
+        </div>
+
+<aside class="user_list">
+    	<% if (typeof userInfo!='undefined'){ %>
+    		<div class="user_logined">
+    			<% if (userInfo.isAdmin){ %>
+                    <p class="user_welcome">欢迎，<i><%= userInfo.username %></i><a href="/my">点击进入个人中心</a></p>
+                    <p class="user_welcome"><a href="/admin">点击进入后台</a></p>
+                 <% }else {%>
+                 	<p class="user_welcome">欢迎，<i><%= userInfo.username %></i><a href="/my">点击进入个人中心</a></p>
+                 <% }%>
+            <span class="user_loginOut">退出登录</span>
+        </div>
+        <% }else { %>
+        <div class="user_form">
+            <div class="user_tab j_userTab">
+                <span class="user_cur">登录</span>
+                <span>注册</span>
+            </div>
+            <div id="login" class="user_login">
+                <div class="user_input">
+                    <i class="iconfont">&#xe60d;</i>
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <div class="user_input margin_bottom0">
+                    <i class="iconfont">&#xe6c6;</i>
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <p class="user_err"><span>用户名不能为空</span></p>
+                <p class="user_login_btn">登 录</p>
+            </div>
+            <div id="register" class="user_register">
+                <div class="user_input">
+                    <i class="iconfont">&#xe60d;</i>
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <div class="user_input">
+                    <i class="iconfont">&#xe6c6;</i>
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <div class="user_input margin_bottom0">
+                    <i class="iconfont">&#xe6c6;</i>
+                    <input type="password" placeholder="请再次输入密码">
+                </div>
+                <p class="user_err"><span>用户名不能为空</span></p>
+                <p class="user_register_btn">注 册</p>
+            </div>
+        </div>
+        <% } %>
+        <div class="friendly_link">
+            <div class="user_tab">
+                <span class="discuss_title">友情链接</span>
+            </div>
+            <div class="link_item">
+                <a href="http:www.zhihu.com">知乎</a>
+            </div>
+        </div>
+        <p class="user_no">您是本网站的第<i>12</i>位访客祝您生活工作愉快</p>
+        <p class="copy_right">京ICP备17059284号-1</p>
+    </aside>
+</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+	var pages = "<%= pages %>";
+	var count = "<%= count %>";
+	var current_page = "<%= current_page %>"
+	var left = $('.previous');
+	var right = $('.next')
+	console.log(right)
+	if (pages >1) {
+		if (current_page <=1 ) {
+			left.addClass('disabled');
+			left.children('a').text('没有上一页')
+		} else if(current_page>=pages){
+			right.addClass('disabled');
+			right.children('a').text('没有下一页')
+		}
+		
+	} else {
+		left.addClass('disabled');
+			left.children('a').text('没有上一页')
+			right.addClass('disabled');
+			right.children('a').text('没有下一页')
+	}
+</script>
+</body>
+</html>

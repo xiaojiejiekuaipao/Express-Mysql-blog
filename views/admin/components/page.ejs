@@ -1,0 +1,23 @@
+<nav>
+    <ul class="pager">
+    	<% if (pages >1){ %>
+    		<% if (current_page <=1){ %>
+    			<li class="previous disabled"><a>没有上一页</a></li>
+                <li>一共有 <%= count %> 条数据，每页显示 <%= limit %> 条，总共 <%= pages %> 页，当前是第 <%= current_page %> 页</li>
+                <li class="next"><a href="<%= url %>?page=<%= current_page+1 %>">下一页<span aria-hidden="true">&rarr;</span></a></li>
+    		<% } else if(current_page >=pages){ %>	
+                <li class="previous"><a href="<%= url %>?page=<%= current_page-1 %>"><span aria-hidden="true">&larr;</span>上一页</a></li>
+                <li>一共有 <%= count %> 条数据，每页显示 <%= limit %> 条，总共 <%= pages %> 页，当前是第 <%= current_page %> 页</li>
+                <li class="next disabled"><a>没有下一页</a></li>
+            <% } else { %>
+        	    <li class="previous"><a href="<%= url %>?page=<%= current_page-1 %>"><span aria-hidden="true">&larr;</span>上一页</a></li>
+                <li>一共有 <%= count %> 条数据，每页显示 <%= limit %> 条，总共 <%= pages %> 页，当前是第 <%= current_page %> 页</li>
+                <li class="next"><a href="<%= url %>?page=<%= current_page+1 %>">下一页<span aria-hidden="true">&rarr;</span></a></li>
+            <% } %>
+         <% } else {  %>
+         	  <li class="previous disabled"><a>没有上一页</a></li>
+              <li>一共有 <%= count %> 条数据，每页显示 <%= limit %> 条，总共 <%= pages %> 页，当前是第 <%= current_page %> 页</li>
+              <li class="next disabled"><a>没有下一页</a></li>
+         <% } %>
+    </ul>
+</nav>

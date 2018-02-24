@@ -1,0 +1,30 @@
+<% include components/layout.ejs %>
+<ol class="breadcrumb">
+	<li>
+		<a href="/admin">后台管理</a>
+	</li>
+	<li class="active">分类列表</li>
+</ol>
+<div class="container-fluid">
+	<h3>分类列表</h3>
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>ID</th>
+			<th>分类名字</th>
+			<th>操作</th>
+		</tr>
+		<% for (var i=0; i < categorys.length; i++) {%>
+			<tr>
+				<td><%= categorys[i].ID %></td>
+				<td class="col-md-6"><%= categorys[i].category_name %></td>
+				<td>
+					<a href="/admin/category/edit?id=<%= categorys[i].ID %>">修改</a>
+					<a href="/admin/article?type=<%= categorys[i].ID %>">查看该分类下的所有文章</a>
+					<a href="/admin/category/delete?id=<%= categorys[i].ID %>">删除</a>
+				</td>
+				
+			</tr>
+			<% } %>
+	</table>
+	<% include components/page.ejs %>
+</div>

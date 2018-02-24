@@ -1,0 +1,29 @@
+<% include components/layout.ejs %>
+<ol class="breadcrumb">
+	<li>
+		<a href="/admin">个人中心</a>
+	</li>
+	<li class="active">文章分类</li>
+</ol>
+<div class="container-fluid">
+	<h3>分类列表</h3>
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>ID</th>
+			<th>分类名字</th>
+			<th>文章数量</th>
+			<th>操作</th>
+		</tr>
+		<% for (var i=0; i < categorys.length; i++) {%>
+			<tr>
+				<td><%= categorys[i].ID %></td>
+				<td class="col-md-6"><%= categorys[i].category_name %></td>
+				<td><%= categorys[i].count %>&nbsp;&nbsp;&nbsp;篇</td>
+				<td>
+					<a href="/my/article?type=<%= categorys[i].ID %>">查看该分类下的所有文章</a>
+				</td>
+				
+			</tr>
+			<% } %>
+	</table>
+</div>
