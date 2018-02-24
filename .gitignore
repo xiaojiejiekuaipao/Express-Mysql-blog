@@ -3,6 +3,7 @@ node_modules
 
 app(mongoose).js
 .project
+static/
 www/
 Redis/
 MongoDB/
