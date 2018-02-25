@@ -1,7 +1,20 @@
-# vue-mall2
+# Express-Mysql-project
+
+> A Node.js project 使用Express和Mysql搭建的简单博客及后台系统
+
+### 运行项目
+
+1、先安装mysql数据库，然后创建用户名为user，密码为123456的用户，新建名为learn数据库,将sql文件的数据导入该数据库中<br>
+
+2、进入项目目录， 运行npm install <br>
+
+3、node app.js 运行项目 // 启动express服务器
+
+4、在浏览器输入localhost:8088即跳转到博客首页，localhost:8088/admin是博客后台管理系统
 
 
-> 文件夹列表
+
+> 项目文件列表
 
 ```
 | - BlogImg  -- 项目页面效果截图
@@ -24,25 +37,52 @@
         | - detail.js     --  个人资料接口
         | - index.js      --  个人中心首页接口
 | - views    -- 网页ejs模板相关
+| - sql      -- 项目sql数据
 | - app.js   -- 项目启动入口
 
 ```
 
 
-### 项目页面展示
+### 项目效果展示
 
->#### 博客后台页面GoodsList.vue
-![image](https://github.com/xiaojiejiekuaipao/Vue2.0-Express-MongoDB-Mall/blob/master/MallImg/goodLists.png)
+>### 后台管理系统登录页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/login.png)
  <br/>
->#### 购物车页面CartList.vue
-![image](https://github.com/xiaojiejiekuaipao/Vue2.0-Express-MongoDB-Mall/blob/master/MallImg/cartList.png)
  <br/>
->#### 收货地址页面Address.vue
-![image](https://github.com/xiaojiejiekuaipao/Vue2.0-Express-MongoDB-Mall/blob/master/MallImg/address.png)
+>### 用户列表页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/userLists.png)
  <br/>
- >#### 订单确认页面OrderConfirm.vue
-![image](https://github.com/xiaojiejiekuaipao/Vue2.0-Express-MongoDB-Mall/blob/master/MallImg/OrderConfirm.png)
  <br/>
- >#### 订单成功页面OrderSuccess.vue
-![image](https://github.com/xiaojiejiekuaipao/Vue2.0-Express-MongoDB-Mall/blob/master/MallImg/orderSuccess.png)
+>### 文章分类页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/categoryList.png)
  <br/>
+ <br/>
+>### 文章列表页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/articlesList.png)
+ <br/>
+ <br/>
+>### 文章评论页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/commentLists.png)
+ <br/>
+ <br/>
+>### 博客首页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/blogIndex.png)
+ <br/>
+ <br/>
+>### 博客文章详情页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/articleIndex.png)
+ <br/>
+ <br/>
+>### 个人资料页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/myDetail.png)
+ <br/>
+ <br/>
+>### 我的文章页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/myArticles.png)
+ <br/>
+ <br/>
+>### 我的评论页
+![image](https://github.com/xiaojiejiekuaipao/Express-Mysql-blog/blob/master/BlogImg/my_comments.png)
+ <br/>
+ <br/>
+
